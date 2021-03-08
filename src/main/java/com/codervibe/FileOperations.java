@@ -26,7 +26,7 @@ public class FileOperations {
         }
         //specify
         fis.close();
-        System.out.println("分割成功！ ！");
+        System.out.println("分割成功！！");
     }
     public static void fileMerge(String filePath) throws IOException {
         FileOutputStream fos = new FileOutputStream(filePath);
