@@ -48,6 +48,7 @@ public class FileOperations {
      * @throws IOException
      */
 
+
     public static void cutEvenlyByFileSize(String filePath,int numberOfDocuments) throws IOException {
         FileInputStream fis = new FileInputStream(filePath);
         File file = new File(filePath);
