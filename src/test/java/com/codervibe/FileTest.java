@@ -10,6 +10,7 @@ import java.io.IOException;
 
 public class FileTest {
     public static void main(String[] args) throws IOException {
-        FileOperations.fileCut("");
+        FileOperations.cutEvenlyByFileSize("冥王.mp3",2);
+//        FileOperations.fileMerge("123.mp3");
     }
 }
