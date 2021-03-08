@@ -47,8 +47,6 @@ public class FileOperations {
      * @param numberOfDocuments   文件要平局分割成几份
      * @throws IOException
      */
-
-
     public static void cutEvenlyByFileSize(String filePath,int numberOfDocuments) throws IOException {
         FileInputStream fis = new FileInputStream(filePath);
         File file = new File(filePath);
