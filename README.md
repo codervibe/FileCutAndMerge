@@ -1,18 +1,16 @@
 ### 文件切割和合并
-- 文件切割  
+####文件切割  
 
-  - 按输入的文件份数切割文件  
+- 按输入的文件份数切割文件  
 
-    ```java
+  ```java
     FileOperations.cutEvenlyByFileSize();
-    ```
+  ```
 
-  - 将文件以MB为单位等分成几份 
-
-
-    ```java
-    FileOperations.fileCut();  
-    ```
+- 将文件以MB为单位等分成几份 
+  ```java
+    FileOperations.fileCut();
+  ```
 
 - 文件切割代码
 
@@ -73,8 +71,40 @@
 
   
 
-* 文件合并  
-多个输入流，一个输出流
+####  文件合并  
+  多个输入流，一个输出流
+  ```java
+     /**
+       * 文件合并
+       * @param filePath
+       * @throws IOException
+       */
+      public static void fileMerge(String filePath,int numberOfMergedFiles) throws IOException {
+          FileOutputStream fos = new FileOutputStream(filePath);
+          for (int i = 0; i < numberOfMergedFiles; i++) {
+              FileInputStream fis = new FileInputStream("第"+(i+1)+"个.mp3");
+              byte[] bs =new byte[10000];
+              int total=0;
+              while ((total=fis.read(bs))!=-1){
+                  fos.write(bs, 0, total);
+  
+              }
+              fis.close();
+          }
+          fos.close();
+          System.out.println("合并成功！！");
+      }
+  ```
 
-    
+​    
+
+设想：  将几个不相关的文件合并到一起
+
+代码：
+
+
+
+```java
+System.out.println("1231222123");
+```
 

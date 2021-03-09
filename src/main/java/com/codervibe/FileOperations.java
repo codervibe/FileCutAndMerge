@@ -6,10 +6,8 @@ package com.codervibe;
  * Others:
  */
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 
 /**
  * @author Administrator
@@ -20,7 +18,6 @@ public class FileOperations {
      * @param filePath
      * @throws IOException
      */
-
     public static void fileCut(String filePath) throws IOException {
         FileInputStream fis = new FileInputStream(filePath);
         /**
@@ -59,7 +56,6 @@ public class FileOperations {
             fos.write(ba, 0, total);
             fos.close();
         }
-        //specify
         fis.close();
         System.out.println("平均分割成功！！");
     }
@@ -79,6 +75,29 @@ public class FileOperations {
                 fos.write(bs, 0, total);
 
             }
+            fis.close();
+        }
+        fos.close();
+        System.out.println("合并成功！！");
+    }
+
+    /**
+     *
+     * @param arrayList
+     * @param filePath
+     * @throws IOException
+     */
+    public static void specifyFileNameToMerge(ArrayList<String> arrayList,String filePath) throws IOException {
+        FileOutputStream fos = new FileOutputStream(filePath);
+        for (int i = 0; i < arrayList.size(); i++) {
+            FileInputStream fis = new FileInputStream(arrayList.get(i));
+            byte[] bs =new byte[10000];
+            int total=0;
+            while ((total=fis.read(bs))!=-1){
+                fos.write(bs, 0, total);
+
+            }
+            System.out.println(arrayList.get(i));
             fis.close();
         }
         fos.close();
