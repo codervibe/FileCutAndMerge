@@ -1,5 +1,5 @@
 ### 文件切割和合并
-####文件切割  
+#### 文件切割  
 
 - 按输入的文件份数切割文件  
 
@@ -72,7 +72,8 @@
   
 
 ####  文件合并  
-  多个输入流，一个输出流
+-   普通文件合并
+
   ```java
      /**
        * 文件合并
@@ -96,15 +97,34 @@
       }
   ```
 
-​    
+- ​合并文件列表    
+
 
 设想：  将几个不相关的文件合并到一起
 
 代码：
 
-
-
 ```java
-System.out.println("1231222123");
-```
+   /**
+     *
+     * @param arrayList
+     * @param filePath
+     * @throws IOException
+     */
+    public static void specifyFileNameToMerge(ArrayList<String> arrayList,String filePath) throws IOException {
+        FileOutputStream fos = new FileOutputStream(filePath);
+        for (int i = 0; i < arrayList.size(); i++) {
+            FileInputStream fis = new FileInputStream(arrayList.get(i));
+            byte[] bs =new byte[10000];
+            int total=0;
+            while ((total=fis.read(bs))!=-1){
+                fos.write(bs, 0, total);
 
+            }
+            System.out.println(arrayList.get(i));
+            fis.close();
+        }
+        fos.close();
+        System.out.println("合并成功！！");
+    }
+```
