@@ -4,7 +4,7 @@
   - 按输入的文件份数切割文件  
 
     ```java
-    FileOperations.cutEvenlyByFileSize（）;
+    FileOperations.cutEvenlyByFileSize();
     ```
 
   - 将文件以MB为单位等分成几份 
