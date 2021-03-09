@@ -13,11 +13,13 @@ import java.util.ArrayList;
 public class FileTest {
     @Test
     public void cutTest() throws IOException {
-        FileOperations.cutEvenlyByFileSize("冥王.mp3",3);
+//        FileOperations.cutEvenlyByFileSize("冥王.mp3",3);
+        FileOperations.fileMerge("145482549546456.mp3",2);
     }
+
     @Test
     public void MergeTest() throws IOException {
-        ArrayList<String> arrayList=new ArrayList<String>();
+        ArrayList<String> arrayList=new ArrayList<>();
         arrayList.add("冥王.mp3");
         arrayList.add("纳米核心.mp3");
         FileOperations.specifyFileNameToMerge(arrayList,"./合并.mp3");
