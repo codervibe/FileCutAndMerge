@@ -31,7 +31,7 @@ public class FileOperations {
         int total= 0;
         int count = 0;
         while((total=fis.read(ba))!=-1){
-            FileOutputStream fos = new FileOutputStream(fileName+(++count)+"个."+fileExtension);
+            FileOutputStream fos = new FileOutputStream(fileName+(++count)+"."+fileExtension);
             fos.write(ba, 0, total);
             fos.close();
         }
@@ -47,7 +47,8 @@ public class FileOperations {
      * @throws IOException
      */
     public static void cutEvenlyByFileSize(String filePath,int numberOfDocuments) throws IOException {
-
+        String  fileName=extractTheFileNameBasedOnThePath(filePath);;
+        String  fileExtension=extractFileExtensionBasedOnPath(filePath);
         FileInputStream fis = new FileInputStream(filePath);
         File file = new File(filePath);
         long averageFileSize=(file.length()/numberOfDocuments);
@@ -55,7 +56,7 @@ public class FileOperations {
         int total;
         int count = 0;
         while((total=fis.read(ba))!=-1){
-            FileOutputStream fos = new FileOutputStream("第"+(++count)+"个.mp3");
+            FileOutputStream fos = new FileOutputStream(fileName+(++count)+"."+fileExtension);
             fos.write(ba, 0, total);
             fos.close();
         }
@@ -75,7 +76,7 @@ public class FileOperations {
         FileOutputStream fos = new FileOutputStream(filePath);
 
         for (int i = 0; i < numberOfMergedFiles; i++) {
-            FileInputStream fis = new FileInputStream(fileName+(i+1)+"个."+fileExtension);
+            FileInputStream fis = new FileInputStream(fileName+(i+1)+"."+fileExtension);
             byte[] bs =new byte[10000];
             int total=0;
             while ((total=fis.read(bs))!=-1){
@@ -90,12 +91,12 @@ public class FileOperations {
 
 
     /**
-     *
+     * 指定要合并的文件列表
      * @param arrayList
      * @param filePath
      * @throws IOException
      */
-    public static void specifyFileNameToMerge(ArrayList<String> arrayList,String filePath) throws IOException {
+    public static void specifyAListOfFilesToBeMerged(ArrayList<String> arrayList,String filePath) throws IOException {
         FileOutputStream fos = new FileOutputStream(filePath);
         for (int i = 0; i < arrayList.size(); i++) {
             FileInputStream fis = new FileInputStream(arrayList.get(i));
@@ -105,19 +106,29 @@ public class FileOperations {
                 fos.write(bs, 0, total);
 
             }
-            System.out.println(arrayList.get(i));
             fis.close();
         }
         fos.close();
         System.out.println("合并成功！！");
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * 根据路径提取文件名
      * @param filePath
      */
     public static String extractTheFileNameBasedOnThePath(String filePath) {
-        System.out.println("filePath = " + filePath);
         String[] a =filePath.split("\\.");
         String  fileName=a[0]+"";
         return fileName;
@@ -129,7 +140,6 @@ public class FileOperations {
      * @return
      */
     public static String extractFileExtensionBasedOnPath(String filePath) {
-        System.out.println("filePath = " + filePath);
         String[] a =filePath.split("\\.");
         String  fileExtension=a[1]+"";
         return fileExtension;
