@@ -52,7 +52,7 @@ public class FileOperations {
         File file = new File(filePath);
         long averageFileSize=(file.length()/numberOfDocuments);
         byte[] ba =new byte[(int) averageFileSize];
-        int total= 0;
+        int total;
         int count = 0;
         while((total=fis.read(ba))!=-1){
             FileOutputStream fos = new FileOutputStream("第"+(++count)+"个.mp3");
