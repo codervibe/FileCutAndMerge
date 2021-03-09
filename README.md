@@ -4,13 +4,13 @@
   - 按输入的文件份数切割文件  
 
     ```java
-    cutEvenlyByFileSize（）;
+    FileOperations.cutEvenlyByFileSize（）;
     ```
 
   - 将文件以MB为单位等分成几份 
 
     ```java
-    fileCut();  
+    FileOperations.fileCut();  
     ```
 
 - 文件切割代码
