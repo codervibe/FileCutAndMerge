@@ -1,7 +1,7 @@
 
 
 **/target/
-
+**/test/
 *.mp3
 *.mp4
 # Project exclude paths
